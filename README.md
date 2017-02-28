@@ -85,3 +85,13 @@ $scope.search = (searchType)->
     when 'disk' then getDisksList()
     when 'snapshot' then getSnapshotsList()
   return
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  请在directive 里 自行修改template路径
