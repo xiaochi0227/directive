@@ -84,9 +84,4 @@ $scope.search = (searchType)->
   
   
   
-  <br>
-  
-  
-  
-  
-  请在directive 里 自行修改template路径
+ 
