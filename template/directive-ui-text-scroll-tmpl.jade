@@ -1,0 +1,8 @@
+.panel.panel-default.text-scroll.clearfix
+  .text-scroll-left.pull-left
+    span(translate) Notice: 
+  .text-scroll-right.pull-right(ng-if="!!textRemove")
+    i.fa.fa-times.remove-scroll(aria-hidden="true" ng-click="removeScroll()")
+  .text-scroll-center
+    .text-scroll-body
+      span.scroll-text(ng-mouseover="stopScroll()" ng-mouseleave="startScroll()") {{textData}}

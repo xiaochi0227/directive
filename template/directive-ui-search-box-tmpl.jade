@@ -1,0 +1,30 @@
+div.search-box.clearfix
+  div.pull-left.search-item.key-box
+    div.key-list
+      div.input-group.dropdown(uib-dropdown='')
+        input.form-control(type="text" readonly="readonly" value="{{searchBox.searchKey.text | translate}}")
+        div.input-group-btn
+          button.btn.btn-default(type='button', uib-dropdown-toggle='')
+            | &nbsp;
+            span.caret
+        ul.dropdown-menu.pull-right(uib-dropdown-menu='')
+          li(ng-click="chooseSearchKey(key)",ng-repeat="key in keys")
+            a {{key.text | translate}}
+
+  div.pull-left.search-item.value-box
+    div
+      div.input-group(style="width:100%;" ng-if="!searchBox.searchKey || searchBox.searchKey.type == 'text'")
+        input.form-control(type="text" ng-model="searchBox.searchValue" ui-limit-length="50")
+
+      div.input-group.dropdown(ng-if="searchBox.searchKey.type == 'list'" uib-dropdown='')
+        input.form-control(type="text" readonly="readonly" value="{{searchBox.serachValueText | translate}}")
+        div.input-group-btn
+          button.btn.btn-default(type='button', uib-dropdown-toggle='')
+            | &nbsp;
+            span.caret
+        ul.dropdown-menu.pull-right(uib-dropdown-menu='' style="width: auto;")
+          li(ng-click="chooseSearchValue(value)" ng-repeat="value in searchBox.searchKey.values")
+            a {{value.text | translate}}
+
+  div.pull-right.search-item.btn-box
+    button.btn.btn-black(ng-click="submitSearch()" ng-disabled="disableFilter" translate)  AddToFilters
